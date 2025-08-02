@@ -1,0 +1,91 @@
+name: Main (Format C# Code & Security Code Scan)
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+permissions:
+  contents: write
+  security-events: write
+
+jobs:
+  format-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # fetch-depth: 0 # для amend/force push
+          ref: ${{ github.head_ref || github.ref }} # Убедиться, что используется правильная ветка
+
+      - name: Run dotnet format
+        id: dotnet_format
+        run: |
+          dotnet format --no-restore --verify-no-changes --verbosity diagnostic Qurre
+        continue-on-error: true # Продолжить выполнение, даже если форматирование нужно
+
+      - name: Check for formatting changes
+        id: check_changes
+        if: steps.dotnet_format.outcome == 'failure' # Запускать только если dotnet format нашел что менять
+        run: |
+          # Проверяем, есть ли изменения после попытки форматирования (dotnet format мог уже применить их)
+          # Или, если 'verify-no-changes' просто упал, запускаем форматирование еще раз для применения
+          dotnet format --no-restore --verbosity diagnostic Qurre
+
+          # Теперь проверяем git status
+          if ! git diff --quiet; then
+            echo "Formatting changes detected."
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "No formatting changes needed or applied."
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and Push Changes
+        if: steps.check_changes.outputs.changes_detected == 'true' # Запускать только если были изменения
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add . # Добавить все изменения форматирования
+          git commit -m "refactor: apply automatic code formatting [skip ci]" # Создать НОВЫЙ коммит
+          # [skip ci] в сообщении коммита часто используется, чтобы предотвратить запуск этого же workflow снова
+          git push origin HEAD:${{ github.head_ref || github.ref_name }} # Пуш в ту же ветку, откуда пришел триггер
+
+      # --- АЛЬТЕРНАТИВА: ИЗМЕНЕНИЕ КОММИТА (НЕ РЕКОМЕНДУЕТСЯ!) ---
+      # Закомментируйте блок "Commit and Push Changes" выше и раскомментируйте этот, если нужен amend
+      # ВНИМАНИЕ: ИСПОЛЬЗУЙТЕ С КРАЙНЕЙ ОСТОРОЖНОСТЬЮ! РИСК ПОТЕРИ ДАННЫХ!
+      # - name: Amend Commit and Force Push Changes (Use with Caution!)
+      #   if: steps.check_changes.outputs.changes_detected == 'true'
+      #   run: |
+      #     git config --global user.name 'github-actions[bot]'
+      #     git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      #     git add .
+      #     git commit --amend --no-edit # Изменить последний коммит, не меняя сообщение
+      #     # Использовать force-with-lease безопаснее, чем просто force
+      #     git push --force-with-lease origin HEAD:${{ github.head_ref || github.ref_name }}
+
+  analyze:
+    name: CodeQL – ${{ matrix.language }}
+    needs: ["format-code"]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'csharp' ]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+

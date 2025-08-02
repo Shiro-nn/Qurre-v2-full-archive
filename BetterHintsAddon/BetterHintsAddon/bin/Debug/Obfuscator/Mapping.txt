@@ -1,0 +1,185 @@
+Renamed Types:
+
+[BHA]BHA.Loader -> [BHA]A.a
+{
+	[BHA]BHA.Loader::Waiting[0]( ) -> A
+	[BHA]BHA.Loader::Patch[2]( [Assembly-CSharp]Hints.HintDisplay, [Assembly-CSharp]Hints.Hint ) -> A
+	[BHA]BHA.Loader::<Patch>g__Yes|7_2[1]( [Assembly-CSharp]Hints.HintParameter ) -> A
+
+	[BHA]BHA.Loader::Init[0]( ) skipped:  external base class or interface
+	[BHA]BHA.Loader::.ctor[0]( ) skipped:  special name
+	[BHA]BHA.Loader::.cctor[0]( ) skipped:  special name
+
+	HarmonyLib.Harmony [BHA]HarmonyLib.Harmony BHA.Loader::hInstance -> A
+	System.String [BHA]System.String BHA.Loader::HintToken -> A
+	System.String [BHA]System.String BHA.Loader::CorTag -> a
+	Qurre.HintSender [BHA]Qurre.HintSender BHA.Loader::Sender -> A
+	System.Boolean [BHA]System.Boolean BHA.Loader::BetterHints -> A
+}
+
+[BHA]BHA.Action -> [BHA]A.B
+{
+
+	[BHA]BHA.Action::.ctor[1]( [Qurre].InjectAct`4<[mscorlib]System.String,[mscorlib]System.String,[mscorlib]System.Boolean,[Qurre]Qurre.API.Player> ) skipped:  special name
+
+	Qurre.API.Addons.BetterHints.Manager/InjectAct`4<System.String,System.String,System.Boolean,Qurre.API.Player> [BHA]Qurre.API.Addons.BetterHints.Manager/InjectAct`4<System.String,System.String,System.Boolean,Qurre.API.Player> BHA.Action::Act -> A
+	System.Guid [BHA]System.Guid BHA.Action::Uid -> A
+}
+
+[BHA]BHA.Manager -> [BHA]A.b
+{
+	[BHA]BHA.Manager::ClearFields[0]( ) -> A
+	[BHA]BHA.Manager::ShowHint[3]( [Qurre]Qurre.API.Player, [mscorlib]System.String, [mscorlib]System.Single ) -> A
+	[BHA]BHA.Manager::Сycle[0]( ) -> a
+	[BHA]BHA.Manager::CycleVoid[0]( ) -> B
+	[BHA]BHA.Manager::<CycleVoid>g__FormateArr|7_0[2]( [mscorlib]System.String, [BHA]BHA.Manager/<>c__DisplayClass7_0& ) -> A
+	[BHA]BHA.Manager::<CycleVoid>g__GetVOffset|7_1[1]( [mscorlib]System.String ) -> A
+
+	[BHA]BHA.Manager::.cctor[0]( ) skipped:  special name
+
+	System.Collections.Generic.Dictionary`2<Qurre.API.Player,System.Collections.Generic.List`1<Qurre.API.Addons.BetterHints.HintStruct>> [BHA]System.Collections.Generic.Dictionary`2<Qurre.API.Player,System.Collections.Generic.List`1<Qurre.API.Addons.BetterHints.HintStruct>> BHA.Manager::Hints -> A
+	System.Collections.Generic.Dictionary`2<Qurre.API.Player,System.Collections.Generic.List`1<System.String>> [BHA]System.Collections.Generic.Dictionary`2<Qurre.API.Player,System.Collections.Generic.List`1<System.String>> BHA.Manager::FixHints -> A
+	System.Collections.Generic.Dictionary`2<Qurre.API.Player,System.Collections.Generic.List`1<BHA.Action>> [BHA]System.Collections.Generic.Dictionary`2<Qurre.API.Player,System.Collections.Generic.List`1<BHA.Action>> BHA.Manager::Actions -> A
+	System.Collections.Generic.List`1<BHA.Action> [BHA]System.Collections.Generic.List`1<BHA.Action> BHA.Manager::GlobalActions -> A
+}
+
+[BHA]Qurre.ConfigsCall -> [BHA]A.C
+{
+	[BHA]Qurre.ConfigsCall::get_Config[0]( ) -> A
+	[BHA]Qurre.ConfigsCall::set_Config[1]( [Qurre]Qurre.API.Addons.JsonConfig ) -> A
+	[BHA]Qurre.ConfigsCall::UpdateConfig[0]( ) -> a
+
+	[BHA]Qurre.ConfigsCall::.ctor[0]( ) skipped:  special name
+
+	Qurre.API.Addons.JsonConfig [BHA]Qurre.API.Addons.JsonConfig Qurre.ConfigsCall::<Config>k__BackingField -> A
+
+	Qurre.API.Addons.JsonConfig [BHA]Qurre.API.Addons.JsonConfig Qurre.ConfigsCall::Config -> dropped
+}
+
+[BHA]BHA.Loader/<>c -> [BHA]A.a/A
+{
+	[BHA]BHA.Loader/<>c::<Init>b__5_0[0]( ) -> A
+	[BHA]BHA.Loader/<>c::<Init>b__5_1[1]( [UnityEngine.CoreModule]UnityEngine.SceneManagement.Scene ) -> A
+	[BHA]BHA.Loader/<>c::<Patch>b__7_0[1]( [Assembly-CSharp]Hints.HintParameter ) -> A
+
+	[BHA]BHA.Loader/<>c::.cctor[0]( ) skipped:  special name
+	[BHA]BHA.Loader/<>c::.ctor[0]( ) skipped:  special name
+
+	BHA.Loader/<>c [BHA]BHA.Loader/<>c BHA.Loader/<>c::<>9 -> A
+	System.Action [BHA]System.Action BHA.Loader/<>c::<>9__5_0 -> A
+	UnityEngine.Events.UnityAction`1<UnityEngine.SceneManagement.Scene> [BHA]UnityEngine.Events.UnityAction`1<UnityEngine.SceneManagement.Scene> BHA.Loader/<>c::<>9__5_1 -> A
+	System.Func`2<Hints.HintParameter,System.Boolean> [BHA]System.Func`2<Hints.HintParameter,System.Boolean> BHA.Loader/<>c::<>9__7_0 -> A
+}
+
+[BHA]BHA.Loader/<>c__DisplayClass7_0 -> [BHA]A.a/a
+{
+	[BHA]BHA.Loader/<>c__DisplayClass7_0::<Patch>b__1[1]( [Qurre]Qurre.API.Player ) -> A
+
+	[BHA]BHA.Loader/<>c__DisplayClass7_0::.ctor[0]( ) skipped:  special name
+
+	Hints.HintDisplay [BHA]Hints.HintDisplay BHA.Loader/<>c__DisplayClass7_0::__instance -> A
+}
+
+[BHA]BHA.Manager/<>c__DisplayClass5_0 -> [BHA]A.b/A
+{
+	[BHA]BHA.Manager/<>c__DisplayClass5_0::<ShowHint>b__0[0]( ) -> A
+
+	[BHA]BHA.Manager/<>c__DisplayClass5_0::.ctor[0]( ) skipped:  special name
+
+	System.Collections.Generic.List`1<System.String> [BHA]System.Collections.Generic.List`1<System.String> BHA.Manager/<>c__DisplayClass5_0::_data -> A
+	System.String [BHA]System.String BHA.Manager/<>c__DisplayClass5_0::_ -> A
+}
+
+[BHA]BHA.Manager/<>c__DisplayClass7_0 -> [BHA]A.b/a
+{
+	System.Int32 [BHA]System.Int32 BHA.Manager/<>c__DisplayClass7_0::_count -> A
+}
+
+[BHA]BHA.Manager/<Сycle>d__6 -> [BHA]A.b/B
+{
+	[BHA]BHA.Manager/<Сycle>d__6::System.IDisposable.Dispose[0]( ) -> A
+	[BHA]BHA.Manager/<Сycle>d__6::System.Collections.Generic.IEnumerator<System.Single>.get_Current[0]( ) -> a
+	[BHA]BHA.Manager/<Сycle>d__6::System.Collections.IEnumerator.Reset[0]( ) -> B
+	[BHA]BHA.Manager/<Сycle>d__6::System.Collections.IEnumerator.get_Current[0]( ) -> b
+
+	[BHA]BHA.Manager/<Сycle>d__6::.ctor[1]( [mscorlib]System.Int32 ) skipped:  special name
+	[BHA]BHA.Manager/<Сycle>d__6::MoveNext[0]( ) skipped:  external base class or interface
+
+	System.Int32 [BHA]System.Int32 BHA.Manager/<Сycle>d__6::<>1__state -> A
+	System.Single [BHA]System.Single BHA.Manager/<Сycle>d__6::<>2__current -> A
+
+	System.Single [BHA]System.Single BHA.Manager/<Сycle>d__6::System.Collections.Generic.IEnumerator<System.Single>.Current -> dropped
+	System.Object [BHA]System.Object BHA.Manager/<Сycle>d__6::System.Collections.IEnumerator.Current -> dropped
+}
+
+[BHA]Qurre.HintSender/<>c__DisplayClass0_0 -> [BHA]Qurre.HintSender/A
+{
+	[BHA]Qurre.HintSender/<>c__DisplayClass0_0::<Hint>b__0[0]( ) -> A
+
+	[BHA]Qurre.HintSender/<>c__DisplayClass0_0::.ctor[0]( ) skipped:  special name
+
+	System.Collections.Generic.List`1<Qurre.API.Addons.BetterHints.HintStruct> [BHA]System.Collections.Generic.List`1<Qurre.API.Addons.BetterHints.HintStruct> Qurre.HintSender/<>c__DisplayClass0_0::list -> A
+	Qurre.API.Addons.BetterHints.HintStruct [BHA]Qurre.API.Addons.BetterHints.HintStruct Qurre.HintSender/<>c__DisplayClass0_0::hs -> A
+}
+
+[BHA]Qurre.HintSender/<>c__DisplayClass2_0 -> [BHA]Qurre.HintSender/a
+{
+	[BHA]Qurre.HintSender/<>c__DisplayClass2_0::<UnjectAction>b__0[1]( [BHA]BHA.Action ) -> A
+
+	[BHA]Qurre.HintSender/<>c__DisplayClass2_0::.ctor[0]( ) skipped:  special name
+
+	System.Guid [BHA]System.Guid Qurre.HintSender/<>c__DisplayClass2_0::uid -> A
+}
+
+[BHA]Qurre.HintSender/<>c__DisplayClass3_0 -> [BHA]Qurre.HintSender/B
+{
+	[BHA]Qurre.HintSender/<>c__DisplayClass3_0::<ContainsAction>b__0[1]( [BHA]BHA.Action ) -> A
+
+	[BHA]Qurre.HintSender/<>c__DisplayClass3_0::.ctor[0]( ) skipped:  special name
+
+	System.Guid [BHA]System.Guid Qurre.HintSender/<>c__DisplayClass3_0::uid -> A
+}
+
+[BHA]Qurre.HintSender/<>c__DisplayClass5_0 -> [BHA]Qurre.HintSender/b
+{
+	[BHA]Qurre.HintSender/<>c__DisplayClass5_0::<UnjectGlobalAction>b__0[1]( [BHA]BHA.Action ) -> A
+
+	[BHA]Qurre.HintSender/<>c__DisplayClass5_0::.ctor[0]( ) skipped:  special name
+
+	System.Guid [BHA]System.Guid Qurre.HintSender/<>c__DisplayClass5_0::uid -> A
+}
+
+[BHA]Qurre.HintSender/<>c__DisplayClass6_0 -> [BHA]Qurre.HintSender/C
+{
+	[BHA]Qurre.HintSender/<>c__DisplayClass6_0::<ContainsGlobalAction>b__0[1]( [BHA]BHA.Action ) -> A
+
+	[BHA]Qurre.HintSender/<>c__DisplayClass6_0::.ctor[0]( ) skipped:  special name
+
+	System.Guid [BHA]System.Guid Qurre.HintSender/<>c__DisplayClass6_0::uid -> A
+}
+
+[BHA]BHA.GetSender -> [BHA]A.A
+{
+	[BHA]BHA.GetSender::Prefix[1]( [Qurre]Qurre.API.Addons.BetterHints.ISender& ) -> A
+}
+
+Skipped Types:
+
+[BHA]Qurre.HintSender skipped:  KeepPublicApi option in configuration
+{
+
+	[BHA]Qurre.HintSender::Hint[2]( [Qurre]Qurre.API.Player, [Qurre]Qurre.API.Addons.BetterHints.HintStruct ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::InjectAction[2]( [Qurre]Qurre.API.Player, [Qurre].InjectAct`4<[mscorlib]System.String,[mscorlib]System.String,[mscorlib]System.Boolean,[Qurre]Qurre.API.Player> ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::UnjectAction[2]( [Qurre]Qurre.API.Player, [mscorlib]System.Guid ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::ContainsAction[2]( [Qurre]Qurre.API.Player, [mscorlib]System.Guid ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::InjectGlobalAction[1]( [Qurre].InjectAct`4<[mscorlib]System.String,[mscorlib]System.String,[mscorlib]System.Boolean,[Qurre]Qurre.API.Player> ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::UnjectGlobalAction[1]( [mscorlib]System.Guid ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::ContainsGlobalAction[1]( [mscorlib]System.Guid ) skipped:  external base class or interface
+	[BHA]Qurre.HintSender::.ctor[0]( ) skipped:  special name
+}
+
+Renamed Resources:
+
+
+Skipped Resources:
+

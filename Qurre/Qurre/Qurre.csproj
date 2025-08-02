@@ -1,0 +1,98 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <!--<TargetFramework>net48</TargetFramework>-->
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <Title>Qurre SL</Title>
+        <Authors>Qurre Team</Authors>
+        <Description>Simple, convenient and functional plugin loader for SCP: Secret Laboratory</Description>
+        <Copyright>Copyright © Qurre Team</Copyright>
+        <Company>Qurre Team</Company>
+        <Product>Qurre SL</Product>
+        <Configurations>Debug;Release;Tests</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <OutputPath>..\_bin\Debug\</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <OutputPath>..\_bin\Release\</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Tests' ">
+        <OutputPath>..\_bin\Tests\</OutputPath>
+        <Tests>True</Tests>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);MSB3277</NoWarn>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+        <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+        <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="0Harmony">
+            <HintPath>..\depedencies\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>..\depedencies\Assembly-CSharp_public.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>..\depedencies\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="CommandSystem.Core">
+            <HintPath>..\depedencies\CommandSystem.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="LabApi">
+            <HintPath>..\depedencies\LabApi.dll</HintPath>
+        </Reference>
+        <Reference Include="Mirror">
+            <HintPath>..\depedencies\Mirror_public.dll</HintPath>
+        </Reference>
+        <Reference Include="Mirror.Components">
+            <HintPath>..\depedencies\Mirror.Components.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>..\depedencies\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="NorthwoodLib">
+            <HintPath>..\depedencies\NorthwoodLib.dll</HintPath>
+        </Reference>
+        <Reference Include="Pooling">
+            <HintPath>..\depedencies\Pooling.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>..\depedencies\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+            <HintPath>..\depedencies\UnityEngine.AudioModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>..\depedencies\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath>..\depedencies\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Qurre.Loader\Qurre.Loader.csproj"/>
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent"
+            Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))">
+        <Exec Command="xcopy /Y /Q &quot;$(TargetPath)&quot; &quot;%AppData%\Qurre\&quot;"/>
+        <Message Text="Copy Qurre to Appdata" Importance="High"/>
+    </Target>
+
+</Project>

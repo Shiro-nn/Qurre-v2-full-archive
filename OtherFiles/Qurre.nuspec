@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Qurre</id>
+    <version>2.0-gamma</version>
+    <title>Qurre-sl</title>
+    <authors>Qurre Team</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>https://github.com/Qurre-SL/Qurre</projectUrl>
+    <repository type="git" url="https://github.com/Qurre-SL/Qurre"/>
+    <icon>images\qurreLogo.png</icon>
+    <description>Simple, convenient and functional plugin loader for SCP: Secret Laboratory</description>
+    <releaseNotes>v2-beta
+Current version: Beta
+Release > https://github.com/Qurre-sl/Qurre/releases/tag/v2-beta
+</releaseNotes>
+    <copyright>Copyright © Qurre Team 2023</copyright>
+    <tags>scp scp:sl scpsl</tags>
+  </metadata>
+  <files>
+    <file src="..\..\OtherFiles\nuget\qurreLogo.png" target="images\" />
+  </files>
+</package>

@@ -1,0 +1,27 @@
+name: 'AI Commit Fixer'
+
+on:
+  push:
+
+jobs:
+  fix-commits:
+    timeout-minutes: 10
+    name: AI Commit Fixer
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - uses: Shiro-nn/ai-commit-fixer@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
+          OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
+          OPENAI_API_MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
+
+          # Gemini
+          # OPENAI_API_KEY: ${{ secrets.AI_GEMINI_API_KEY }}
+          # OPENAI_API_ENDPOINT: https://generativelanguage.googleapis.com/v1beta/openai
+          # OPENAI_API_MODEL: gemini-2.0-flash

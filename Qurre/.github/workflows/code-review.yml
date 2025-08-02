@@ -1,0 +1,27 @@
+name: AI Code Reviewer
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+
+jobs:
+  code-review:
+    timeout-minutes: 90
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: AI Code Reviewer
+        uses: Shiro-nn/ai-code-reviewer@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}
+          OPENAI_API_ENDPOINT: https://integrate.api.nvidia.com/v1
+          OPENAI_API_MODEL: nvidia/llama-3.3-nemotron-super-49b-v1
+          exclude: ".md,.txt,.dll,.xml"
